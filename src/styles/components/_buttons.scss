@@ -1,0 +1,152 @@
+// Button Base Styles
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  line-height: 1;
+  min-height: 44px;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+  
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+  
+  // Size variations
+  &--sm {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    min-height: 36px;
+  }
+  
+  &--lg {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    min-height: 52px;
+  }
+}
+
+// Button Variants
+.action-button {
+  @extend .btn;
+  
+  // Primary (most important) - Blue gradient
+  &--primary {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    
+    &:hover:not(:disabled) {
+      background: linear-gradient(135deg, #2980b9, #1f5f8b);
+    }
+  }
+  
+  // Default (no variant) - same as primary for backward compatibility
+  &:not([class*="--"]) {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    
+    &:hover:not(:disabled) {
+      background: linear-gradient(135deg, #2980b9, #1f5f8b);
+    }
+  }
+  
+  // Secondary (medium importance) - Green gradient
+  &--secondary {
+    background: linear-gradient(135deg, #27ae60, #229954);
+    color: white;
+    
+    &:hover:not(:disabled) {
+      background: linear-gradient(135deg, #229954, #1e7e34);
+    }
+  }
+  
+  &--buy {
+    background: linear-gradient(135deg, #27ae60, #229954);
+    
+    &:hover:not(:disabled) {
+      background: linear-gradient(135deg, #229954, #1e7e34);
+    }
+  }
+}
+
+.submit-button {
+  @extend .btn;
+  background: linear-gradient(135deg, #27ae60, #229954);
+  color: white;
+  
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, #229954, #1e7e34);
+  }
+}
+
+.edit-button {
+  @extend .btn;
+  // Less important - muted orange/gray gradient
+  background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+  color: white;
+  
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, #7f8c8d, #6c7b7d);
+  }
+}
+
+.remove-button {
+  @extend .btn;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, #c0392b, #a93226);
+  }
+}
+
+.cancel-button {
+  @extend .btn;
+  background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+  color: white;
+  
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, #7f8c8d, #6c7b7d);
+  }
+}
+
+// Button Group
+.button-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  
+  &--center {
+    justify-content: center;
+  }
+  
+  &--right {
+    justify-content: flex-end;
+  }
+  
+  // Responsive stacking
+  @media (max-width: 480px) {
+    flex-direction: column;
+    
+    .btn {
+      width: 100%;
+    }
+  }
+}
